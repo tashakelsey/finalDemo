@@ -271,14 +271,25 @@ function nextQuestion() {
     }
 }
 function showSummary() {
-    const totalQuestions = 5;
+    document.getElementById("game-container").style.display = "none";
+    document.getElementById("popup").classList.remove("show");
+    
+    const totalQuestions = shuffledFoods.length;
     const percentage = (score / totalQuestions) * 100;
     let message = percentage < 50 ? "Try Again" : "Nice Job!";
-    let summaryText = `<strong>${playerName}'s Score: ${score}</strong><br><br>`;
-    summaryText += `<strong>${message}</strong>`;
-    document.getElementById("popup-text").innerHTML = summaryText;
-    document.getElementById("popup").classList.add("show");
+    
+    let summaryText = `<strong>${playerName}'s Score: ${score}/${totalQuestions}</strong><br><br>`;
+    summaryText += `<strong>${message}</strong><br><br>`;
+    summaryText += "<ul>";
+    answers.forEach(answer => {
+        summaryText += `<li>${answer}</li>`;
+    });
+    summaryText += "</ul>";
+
+    document.getElementById("summary-text").innerHTML = summaryText;
+    document.getElementById("summary").style.display = "block";
 }
+
 function restartGame() {
     score = 0;
     lives = 3;
