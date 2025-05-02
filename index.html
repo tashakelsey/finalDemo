@@ -299,12 +299,14 @@ function restartGame() {
     document.getElementById("score").textContent = `⭐ Score: ${score}`;
     document.getElementById("lives").textContent = `❤️ Lives: ${lives}`;
     document.getElementById("popup").classList.remove("show");
-    document.getElementById("summary").classList.remove("show");
+    document.getElementById("summary").style.display = "none";
+
     document.getElementById("game-container").style.display = "block";
 
     shuffledFoods = [...foods];
     loadFood();
 }
+
     </script>
 </body>
 </html>
