@@ -212,6 +212,7 @@ let shuffledFoods = [];
 function startGame() {
     playerName = document.getElementById("player-name").value || "Player";
     alert(`Welcome, ${playerName}! The game will start now.`);
+    document.getElementById("summary").style.display = "none";
     document.getElementById("player-display").textContent = `👤 ${playerName}`;
     document.getElementById("name-input-container").style.display = "none";
     document.getElementById("game-container").style.display = "block";
